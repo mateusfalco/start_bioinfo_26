@@ -3,7 +3,7 @@
 # Start Bioinfo '26
 *Introdução ao Nextflow*
 
-<img src="start_bioinfo_26_header.png" alt="Start Bioinfo 26 Logo" width="100%" />
+<img src="start_bioinfo_26_header.png" alt="Start Bioinfo 26 Logo"/>
 
 </div>
 
