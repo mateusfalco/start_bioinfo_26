@@ -3,7 +3,7 @@
 # Start Bioinfo '26
 *Introdução ao Nextflow*
 
-<img src="start_bioinfo_26_header.png" alt="Start Bioinfo 26 Logo"/>
+<img src="img/start_bioinfo_26_header.png" alt="Start Bioinfo 26 Logo"/>
 
 </div>
 
@@ -17,7 +17,7 @@ A bioinformática moderna exige reprodutibilidade, escalabilidade e controle rig
   <a href="https://codespaces.new/mateusfalco/start_bioinfo_26">
     <img src="https://github.com/codespaces/badge.svg" alt="Open in GitHub Codespaces" height="40" />
   </a>
-  <p><i>Clique no botão acima para iniciar seu ambiente de prática instantaneamente.</i></p>
+  <p><i>Clique no botão acima para iniciar o ambiente de prática.</i></p>
 </div>
 
 <br>
@@ -62,6 +62,7 @@ nextflow run nf-core/ampliseq \
     --metadata samplesheet.tsv
 ```
 (Saída esperada: O download dos containers do nf-core e a criação da pasta resultados/ com os arquivos finais de processamento).
-Materiais de Apoio
-Documentação e Treinamento Oficial (Nextflow)
-nf-core: Repositório de Pipelines Validados
+### Materiais de Apoio
+Documentação e Treinamento Oficial (Nextflow)[https://training.nextflow.io/]
+nf-core: Repositório de Pipelines Validados[https://nf-co.re/]
+	
