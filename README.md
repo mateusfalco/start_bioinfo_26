@@ -9,7 +9,7 @@
 
 <br>
 
-A bioinformática moderna exige reprodutibilidade, escalabilidade e controle rigoroso de cada etapa analítica. Neste minicurso, vamos explorar o ecossistema Nextflow e a transição do pensamento linear em scripts Bash para o paradigma de *Dataflow*.
+A bioinformática moderna exige reprodutibilidade, escalabilidade e controle rigoroso de cada etapa analítica. Neste minicurso, vamos explorar o ecossistema Nextflow e a transição do pensamento linear em *scripts Bash* para o paradigma de *Dataflow*.
 
 <br>
 
@@ -17,14 +17,14 @@ A bioinformática moderna exige reprodutibilidade, escalabilidade e controle rig
   <a href="https://codespaces.new/mateusfalco/start_bioinfo_26">
     <img src="https://github.com/codespaces/badge.svg" alt="Open in GitHub Codespaces" height="40" />
   </a>
-  <p><i>Clique no botão acima para iniciar o ambiente de prática.</i></p>
+  <p><i>Clique acima para iniciar o ambiente de prática.</i></p>
 </div>
 
 <br>
 
-Para que nosso foco seja inteiramente científico e prático, abstraímos a barreira da infraestrutura. O ambiente virtual gerado pelo Codespaces já vem configurado com todas as dependências (Java, Nextflow e Docker) necessárias para a aula.
+Para que nosso foco seja inteiramente científico e prático, abstraímos a barreira da infraestrutura. O ambiente virtual gerado pelo **Codespaces** já vem configurado com todas as dependências (Java, Nextflow e Docker) necessárias para a aula.
 
-Facilitador:* Mateus Falco* (Embaixador Nextflow, CEO/CTO Genobit).
+Facilitador: **Mateus Falco** (Embaixador Nextflow, CEO/CTO Genobit).
 ---
 
 ## Protocolo de Validação do Ambiente (Teste Rápido)
@@ -33,10 +33,11 @@ Para garantirmos que o seu ambiente subiu corretamente e que a orquestração es
 
 ### Teste 1: Validação do Motor Nextflow
 Certifique-se de que o sistema base está respondendo.
+
 ```bash
 nextflow run hello
 ```
-(Saída esperada: Uma mensagem de boas-vindas do Nextflow demonstrando o download e execução do script de teste).
+***Saída esperada:*** Uma mensagem de boas-vindas do Nextflow demonstrando o download e execução do script de teste.
 
 ### Teste 2: Execução do Pipeline Customizado (Local)
 
@@ -46,7 +47,7 @@ Vamos rodar o nosso código base que fará a leitura e transformação simples d
 nextflow run main.nf
 ```
 
-* Validação do Cache: Execute exatamente o mesmo comando, adicionando a flag -resume. Observe que o Nextflow recuperará o estado anterior sem reprocessar os dados desnecessariamente.
+* **Validação do Cache:** Execute exatamente o mesmo comando, adicionando a flag `-resume`. Observe que o Nextflow recuperará o estado anterior sem reprocessar os dados desnecessariamente.
 
 ```bash
 nextflow run main.nf -resume
@@ -65,7 +66,8 @@ nextflow run nf-core/ampliseq \
     --RV_primer GGACTACNVGGGTWTCTAAT \
     --metadata samplesheet.tsv
 ```
-(Saída esperada: O download dos containers do nf-core e a criação da pasta resultados/ com os arquivos finais de processamento).
+***Saída esperada:*** O download dos containers do nf-core e a criação da pasta `resultados/` com os arquivos finais de processamento.
+
 ### Materiais de Apoio
 [Documentação e Treinamento Oficial (Nextflow)](https://training.nextflow.io/): Documentação completa e exercícios avançados.
 
