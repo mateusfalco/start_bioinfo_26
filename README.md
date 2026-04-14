@@ -63,6 +63,7 @@ nextflow run nf-core/ampliseq \
 ```
 (Saída esperada: O download dos containers do nf-core e a criação da pasta resultados/ com os arquivos finais de processamento).
 ### Materiais de Apoio
-[Documentação e Treinamento Oficial (Nextflow)](https://training.nextflow.io/)
-[nf-core: Repositório de Pipelines Validados](https://nf-co.re/)
+[Documentação e Treinamento Oficial (Nextflow)](https://training.nextflow.io/): Documentação completa e exercícios avançados.
+
+[nf-core: Repositório de Pipelines Validados](https://nf-co.re/): Catálogo de pipelines padrão ouro para bioinformática.
 	
