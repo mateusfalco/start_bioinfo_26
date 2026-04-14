@@ -1,12 +1,24 @@
 # Start Bioinfo '26: Introdução Prática ao Nextflow
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/mateusfalco/start_bioinfo_26)
+<div align="center">
+  <img src="start_bioinfo_26_header.png" alt="Cena Panorâmica do Laboratório" width="100%" />
+</div>
+
+<br>
 
 A bioinformática moderna exige reprodutibilidade, escalabilidade e controle rigoroso de cada etapa analítica. Neste minicurso, vamos explorar o ecossistema Nextflow e a transição do pensamento linear em scripts Bash para o paradigma de *Dataflow*.
 
 Para que nosso foco seja inteiramente científico e prático, abstraímos a barreira da infraestrutura. O botão acima gera um ambiente virtual conteinerizado (Codespaces) configurado com todas as dependências (Java, Nextflow e Docker) necessárias para a aula.
 
 **Facilitador:** Mateus Falco (Embaixador Nextflow, CTO Genobit).
+
+<br>
+
+<div align="center">
+  <img src="https://github.com/codespaces/badge.svg" alt="Abrir no GitHub Codespaces" />
+</div>
+
+<br>
 
 ---
 
