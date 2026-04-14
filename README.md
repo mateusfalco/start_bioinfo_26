@@ -24,7 +24,7 @@ A bioinformática moderna exige reprodutibilidade, escalabilidade e controle rig
 
 Para que nosso foco seja inteiramente científico e prático, abstraímos a barreira da infraestrutura. O ambiente virtual gerado pelo Codespaces já vem configurado com todas as dependências (Java, Nextflow e Docker) necessárias para a aula.
 
-**Facilitador:** Mateus Falco (Embaixador Nextflow, CEO/CTO Genobit).
+Facilitador:* Mateus Falco* (Embaixador Nextflow, CEO/CTO Genobit).
 ---
 
 ## Protocolo de Validação do Ambiente (Teste Rápido)
@@ -46,7 +46,11 @@ Vamos rodar o nosso código base que fará a leitura e transformação simples d
 nextflow run main.nf
 ```
 
-Validação do Cache: Execute exatamente o mesmo comando, adicionando a flag -resume. Observe que o Nextflow recuperará o estado anterior sem reprocessar os dados desnecessariamente.
+* Validação do Cache: Execute exatamente o mesmo comando, adicionando a flag -resume. Observe que o Nextflow recuperará o estado anterior sem reprocessar os dados desnecessariamente.
+
+```bash
+nextflow run main.nf -resume
+```
 
 ### Teste 3: Simulação de Alta Complexidade (nf-core)
 
