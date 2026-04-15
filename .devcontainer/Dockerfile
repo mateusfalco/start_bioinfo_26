@@ -2,10 +2,14 @@ FROM debian:bookworm-slim
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends \
-       openjdk-17-jre-headless \
-       ca-certificates \
-       curl \
-       git \
+        openjdk-17-jre-headless \
+        ca-certificates \
+        curl \
+        git \
+        nano \
+        htop \
+        less \
+        procps \
     && curl -s https://get.nextflow.io | bash \
     && chmod +x nextflow \
     && mv nextflow /usr/local/bin/nextflow \
