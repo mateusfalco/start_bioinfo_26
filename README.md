@@ -1,7 +1,7 @@
 <div align="center">
 
 # Start Bioinfo '26
-*Introdução ao Nextflow*
+*Introdução ao Nextflow e Bioinformática Reprodutível*
 
 <img src="img/start_bioinfo_26_header.png" alt="Start Bioinfo 26 Logo"/>
 
@@ -9,7 +9,7 @@
 
 <br>
 
-A bioinformática moderna exige reprodutibilidade, escalabilidade e controle rigoroso de cada etapa analítica. Neste minicurso, vamos explorar o ecossistema Nextflow e a transição do pensamento linear em *scripts Bash* para o paradigma de *Dataflow*.
+A bioinformática moderna exige reprodutibilidade, escalabilidade e controle rigoroso de cada etapa analítica. Neste minicurso, vamos explorar o ecossistema Nextflow, a transição do pensamento linear em *scripts Bash* para o paradigma de *Dataflow* e a execução de pipelines padrão-ouro diretamente na nuvem.
 
 <br>
 
@@ -22,54 +22,97 @@ A bioinformática moderna exige reprodutibilidade, escalabilidade e controle rig
 
 <br>
 
-Para que nosso foco seja inteiramente científico e prático, abstraímos a barreira da infraestrutura. O ambiente virtual gerado pelo **Codespaces** já vem configurado com todas as dependências (Java, Nextflow e Docker) necessárias para a aula.
+Para que nosso foco seja inteiramente científico e prático, abstraímos a barreira da infraestrutura. O ambiente virtual gerado pelo **Codespaces** já vem configurado com todas as dependências (Nextflow, Docker e utilitários) necessárias para a aula.
 
-Facilitador: **Mateus Falco** (Embaixador Nextflow, CEO/CTO Genobit).
+**Facilitador:** Mateus Falco (Embaixador Nextflow, CEO/CTO Genobit).
+
 ---
 
-## Protocolo de Validação do Ambiente (Teste Rápido)
+## 🔬 O Experimento: Transplante de Microbiota Fecal (FMT)
 
-Para garantirmos que o seu ambiente subiu corretamente e que a orquestração está funcional, realizaremos três testes de complexidade crescente. Abra o terminal integrado na parte inferior da tela e siga os passos:
+A nossa prática não é apenas um teste de software, é ciência real. Os dados utilizados são baseados em um estudo longitudinal in vivo de Transplante de Microbiota Fecal (FMT) em camundongos.
 
-### Teste 1: Validação do Motor Nextflow
-Certifique-se de que o sistema base está respondendo.
+Acompanharemos uma série temporal de 4 pontos (referente à amostra "19022" no Camundongo #2) para analisar o *engraftment* (sucesso da colonização) das bactérias:
+* **Dia 0:** Fezes Humanas Originais (Input/Doador) - `SRR38096734`
+* **Dia 7:** Fezes Camundongo #2 (Antes da consolidação do FMT) - `SRR38097380`
+* **Dia 23:** Fezes Camundongo #2 (Pós-FMT) - `SRR38096774`
+* **Dia 27:** Fezes Camundongo #2 (Evolução final) - `SRR38097389`
 
-```bash
-nextflow run hello
+---
+
+## 🚀 Execução do Pipeline Padrão Ouro
+
+### 1. Preparando os Metadados (`samplesheet.csv`)
+O Nextflow exige rigor na entrada de dados. Certifique-se de que o arquivo `samplesheet.csv` na raiz do seu projeto contenha a seguinte estrutura para mapear os arquivos baixados:
+
+```csv
+sampleID,forwardReads,reverseReads,run
+S00_19022_Human_Stool,./data/SRR38096734_1.fastq.gz,./data/SRR38096734_2.fastq.gz,1
+S01_19022_Mouse2_D23,./data/SRR38096774_1.fastq.gz,./data/SRR38096774_2.fastq.gz,1
+S02_19022_Mouse2_D7,./data/SRR38097380_1.fastq.gz,./data/SRR38097380_2.fastq.gz,1
+S03_19022_Mouse2_D27,./data/SRR38097389_1.fastq.gz,./data/SRR38097389_2.fastq.gz,1
 ```
-***Saída esperada:*** Uma mensagem de boas-vindas do Nextflow demonstrando o download e execução do script de teste.
 
-### Teste 2: Execução do Pipeline Customizado (Local)
+### 2. A Orquestração (nf-core/ampliseq)
 
-Vamos rodar o nosso código base que fará a leitura e transformação simples de um arquivo FASTA.
+Para processar os dados brutos e gerar as matrizes de abundância com resolução de ASVs, executaremos o pipeline nf-core/ampliseq.
 
-```bash
-nextflow run main.nf
-```
-
-* **Validação do Cache:** Execute exatamente o mesmo comando, adicionando a flag `-resume`. Observe que o Nextflow recuperará o estado anterior sem reprocessar os dados desnecessariamente.
-
-```bash
-nextflow run main.nf -resume
-```
-
-### Teste 3: Simulação de Alta Complexidade (nf-core)
-
-Para validar o motor Docker interno e a capacidade de integração em nuvem, rodaremos um teste rápido usando o pipeline padrão ouro para amplicon (16S). Este teste utiliza um dataset sintético minúsculo presente na pasta data/.
+Nota biológica: Como o protocolo de sequenciamento utilizado (EMP) já entrega reads sem primers na extremidade 5', mas com read-through na 3', nós desligamos o Cutadapt e ajustamos o truncamento nativo do DADA2.
 
 ```bash
 nextflow run nf-core/ampliseq \
-    -profile docker \
-    --input data/ \
-    --outdir resultados \
-    --FW_primer GTGYCAGCMGCCGCGGTAA \
-    --RV_primer GGACTACNVGGGTWTCTAAT \
-    --metadata samplesheet.tsv
+  -r 2.16.1 \
+  -profile docker \
+  --input samplesheet.csv \
+  --FW_primer "GTGYCAGCMGCCGCGGTAA" \
+  --RV_primer "GGACTACNVGGGTWTCTAAT" \
+  --outdir ./resultados \
+  --skip_cutadapt \
+  --trunclenf 240 \
+  --trunclenr 200 \
+  -resume
 ```
-***Saída esperada:*** O download dos containers do nf-core e a criação da pasta `resultados/` com os arquivos finais de processamento.
 
-### Materiais de Apoio
+*  Cache: A flag `-resume` garante que a execução recupere etapas previamente calculadas em caso de interrupção, economizando horas de processamento.
+
+## Visualização de Dados
+
+Um pipeline profissional não devolve apenas tabelas de texto; ele entrega produtos prontos para Data Science. O Nextflow empacotou nossa filogenia, taxonomia e contagens em um único objeto .rds (Phyloseq).
+
+Para gerar gráficos de publicação sem precisar instalar o R na sua máquina, faremos um "sequestro" amigável do container Docker que o Nextflow acabou de baixar. Cole os comandos abaixo no terminal:
+
+# 1. Identifica a imagem Docker do Phyloseq armazenada no cache
+```bash
+IMG_R=$(docker images --format "{{.Repository}}:{{.Tag}}" | grep phyloseq | head -n 1)
+```
+
+# 2. Executa o script de visualização isolado dentro do container
+```bash
+docker run --rm -v $(pwd):/workspace -w /workspace $IMG_R Rscript plot_microbioma.R
+```
+
+* Resultado: Abra a pasta `resultados/` no explorador do VS Code e clique nas imagens `.png` para visualizar a evolução taxonômica e a substituição das comunidades do camundongo pela do doador humano.
+
+## Materiais de Apoio
+
 [Documentação e Treinamento Oficial (Nextflow)](https://training.nextflow.io/): Documentação completa e exercícios avançados.
 
-[nf-core: Repositório de Pipelines Validados](https://nf-co.re/): Catálogo de pipelines padrão ouro para bioinformática.
-	
+[nf-core: Repositório de Pipelines Validados](https://nf-co.re/): Catálogo de pipelines padrão-ouro para bioinformática.
+
+
+## Direitos Autorais, Licença e Agradecimentos
+
+Autor: Mateus Falco
+
+Este material foi desenvolvido para fins educacionais e de disseminação científica no cenário de bioinformática. Fique à vontade para copiar, estudar, modificar e distribuir este conteúdo livremente, desde que seja feito com a devida atribuição ao autor e estritamente para fins não comerciais.
+
+Agradecimentos:
+A ciência reproduzível não se constrói sozinho. Deixo meus sinceros agradecimentos às incríveis comunidades open-source que mantêm esse ecossistema funcionando:
+
+* À equipe e comunidade Nextflow / Seqera Labs por revolucionar a orquestração de dados.
+
+* À comunidade nf-core, em especial aos desenvolvedores e mantenedores dedicados do pipeline nf-core/ampliseq.
+
+* Aos desenvolvedores da linguagem R e pacotes fundamentais como phyloseq e ggplot2.
+
+* Aos mantenedores do projeto Docker e do consórcio Bioconda.
