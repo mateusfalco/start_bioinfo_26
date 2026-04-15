@@ -1,5 +1,5 @@
 {
-    "name": "Start Bioinfo '26",
+    "name": "Start Bioinfo 26 - Master",
     "build": {
         "dockerfile": "Dockerfile"
     },
@@ -14,10 +14,7 @@
             "extensions": [
                 "nextflow.nextflow",
                 "ms-vsliveshare.vsliveshare"
-            ],
-            "settings": {
-                "terminal.integrated.defaultProfile.linux": "bash"
-            }
+            ]
         }
     },
     "remoteUser": "root"
