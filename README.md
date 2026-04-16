@@ -24,8 +24,6 @@ A bioinformática moderna exige reprodutibilidade, escalabilidade e controle rig
 
 Para que nosso foco seja inteiramente científico e prático, abstraímos a barreira da infraestrutura. O ambiente virtual gerado pelo **Codespaces** já vem configurado com todas as dependências (Nextflow, Docker e utilitários) necessárias para a aula.
 
-**Facilitador:** Mateus Falco (Embaixador Nextflow, CEO/CTO Genobit).
-
 ---
 
 ## O Experimento: Transplante de Microbiota Fecal (FMT)
@@ -75,6 +73,8 @@ nextflow run nf-core/ampliseq \
 
 *  **Cache:** A flag `-resume` garante que a execução recupere etapas previamente calculadas em caso de interrupção, economizando horas de processamento.
 
+---
+
 ## Visualização de Dados
 
 Um pipeline profissional não devolve apenas tabelas de texto; ele entrega produtos prontos para *Data Science*. O Nextflow empacotou nossa filogenia, taxonomia e contagens em um único objeto `.rds` (Phyloseq).
@@ -86,12 +86,13 @@ Para gerar gráficos de publicação sem precisar instalar o R na sua máquina, 
 ```
 * Resultado: Abra a pasta `resultados/` no explorador do VS Code e clique nas imagens `.png` para visualizar a evolução taxonômica e a substituição das comunidades do camundongo pela do doador humano.
 
+---
+
 ## Materiais de Apoio
 
 [Documentação e Treinamento Oficial (Nextflow)](https://training.nextflow.io/): Documentação completa e exercícios avançados.
 
 [nf-core: Repositório de Pipelines Validados](https://nf-co.re/): Catálogo de pipelines padrão-ouro para bioinformática.
-
 
 ---
 
