@@ -93,19 +93,17 @@ Para gerar gráficos de publicação sem precisar instalar o R na sua máquina, 
 [nf-core: Repositório de Pipelines Validados](https://nf-co.re/): Catálogo de pipelines padrão-ouro para bioinformática.
 
 
-## Direitos Autorais, Licença e Agradecimentos
+---
 
-Este material foi desenvolvido para fins educacionais e de disseminação científica no cenário de bioinformática. Fique à vontade para copiar, estudar, modificar e distribuir este conteúdo livremente, desde que seja feito com a devida atribuição ao autor e estritamente para fins não comerciais.
+##  Créditos e Licença
 
-Agradecimentos:
-A ciência reproduzível não se constrói sozinho. Deixo meus sinceros agradecimentos às incríveis comunidades *open-source* que mantêm esse ecossistema funcionando:
+Este projeto é mantido por **[Mateus Falco](AUTHORS.md)**. O conteúdo está disponível sob a licença **[CC BY-NC 4.0](LICENSE.md)**, permitindo o uso e modificação para fins educacionais e científicos, desde que citada a fonte e sem finalidade comercial.
 
-* Comunidade Nextflow / Seqera Labs por revolucionar a orquestração de dados.
+###  Agradecimentos
 
-* Comunidade nf-core, em especial aos desenvolvedores e mantenedores dedicados do pipeline nf-core/ampliseq.
+A ciência reprodutível é construída sobre ombros de gigantes. Agradecemos imensamente às comunidades que mantêm as ferramentas base deste minicurso:
 
-* Aos desenvolvedores da linguagem R e pacotes fundamentais como phyloseq e ggplot2.
-
-* Aos mantenedores do projeto Docker e do consórcio Bioconda.
-
-**Autor:** Mateus Falco
+* **[Nextflow](https://nextflow.io/) / [Seqera](https://seqera.io/)**: Pela revolução na orquestração de dados.
+* **[nf-core](https://nf-co.re/)**: Pela curadoria e desenvolvimento do pipeline `ampliseq`.
+* **[R Project](https://www.r-project.org/)**: Pelos pacotes `phyloseq` e `ggplot2`.
+* **[Docker](https://www.docker.com/)** & **[Bioconda](https://bioconda.github.io/)**: Pelo ecossistema de containers.
