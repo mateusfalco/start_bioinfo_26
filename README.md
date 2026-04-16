@@ -77,20 +77,13 @@ nextflow run nf-core/ampliseq \
 
 ## Visualização de Dados
 
-Um pipeline profissional não devolve apenas tabelas de texto; ele entrega produtos prontos para Data Science. O Nextflow empacotou nossa filogenia, taxonomia e contagens em um único objeto .rds (Phyloseq).
+Um pipeline profissional não devolve apenas tabelas de texto; ele entrega produtos prontos para Data Science. O Nextflow empacotou nossa filogenia, taxonomia e contagens em um único objeto `.rds` (Phyloseq).
 
-Para gerar gráficos de publicação sem precisar instalar o R na sua máquina, faremos um "sequestro" amigável do container Docker que o Nextflow acabou de baixar. Cole os comandos abaixo no terminal:
+Para gerar gráficos de publicação sem precisar instalar o R na sua máquina, encapsulamos toda a lógica em um script automatizado que reutiliza o ambiente isolado do Docker. No terminal do seu Codespace, execute:
 
-# 1. Identifica a imagem Docker do Phyloseq armazenada no cache
 ```bash
-IMG_R=$(docker images --format "{{.Repository}}:{{.Tag}}" | grep phyloseq | head -n 1)
+./dataviz.sh
 ```
-
-# 2. Executa o script de visualização isolado dentro do container
-```bash
-docker run --rm -v $(pwd):/workspace -w /workspace $IMG_R Rscript plot_microbioma.R
-```
-
 * Resultado: Abra a pasta `resultados/` no explorador do VS Code e clique nas imagens `.png` para visualizar a evolução taxonômica e a substituição das comunidades do camundongo pela do doador humano.
 
 ## Materiais de Apoio
@@ -102,17 +95,17 @@ docker run --rm -v $(pwd):/workspace -w /workspace $IMG_R Rscript plot_microbiom
 
 ## Direitos Autorais, Licença e Agradecimentos
 
-Autor: Mateus Falco
-
 Este material foi desenvolvido para fins educacionais e de disseminação científica no cenário de bioinformática. Fique à vontade para copiar, estudar, modificar e distribuir este conteúdo livremente, desde que seja feito com a devida atribuição ao autor e estritamente para fins não comerciais.
 
 Agradecimentos:
-A ciência reproduzível não se constrói sozinho. Deixo meus sinceros agradecimentos às incríveis comunidades open-source que mantêm esse ecossistema funcionando:
+A ciência reproduzível não se constrói sozinho. Deixo meus sinceros agradecimentos às incríveis comunidades *open-source* que mantêm esse ecossistema funcionando:
 
-* À equipe e comunidade Nextflow / Seqera Labs por revolucionar a orquestração de dados.
+* Comunidade Nextflow / Seqera Labs por revolucionar a orquestração de dados.
 
-* À comunidade nf-core, em especial aos desenvolvedores e mantenedores dedicados do pipeline nf-core/ampliseq.
+* Comunidade nf-core, em especial aos desenvolvedores e mantenedores dedicados do pipeline nf-core/ampliseq.
 
 * Aos desenvolvedores da linguagem R e pacotes fundamentais como phyloseq e ggplot2.
 
 * Aos mantenedores do projeto Docker e do consórcio Bioconda.
+
+**Autor:** Mateus Falco
