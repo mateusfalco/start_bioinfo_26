@@ -28,7 +28,7 @@ Para que nosso foco seja inteiramente científico e prático, abstraímos a barr
 
 ---
 
-## 🔬 O Experimento: Transplante de Microbiota Fecal (FMT)
+## O Experimento: Transplante de Microbiota Fecal (FMT)
 
 A nossa prática não é apenas um teste de software, é ciência real. Os dados utilizados são baseados em um estudo longitudinal in vivo de Transplante de Microbiota Fecal (FMT) em camundongos.
 
@@ -40,7 +40,7 @@ Acompanharemos uma série temporal de 4 pontos (referente à amostra "19022" no 
 
 ---
 
-## 🚀 Execução do Pipeline Padrão Ouro
+## Execução do Pipeline Padrão Ouro
 
 ### 1. Preparando os Metadados (`samplesheet.csv`)
 O Nextflow exige rigor na entrada de dados. Certifique-se de que o arquivo `samplesheet.csv` na raiz do seu projeto contenha a seguinte estrutura para mapear os arquivos baixados:
