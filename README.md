@@ -57,7 +57,7 @@ S03_19022_Mouse2_D27,./data/SRR38097389_1.fastq.gz,./data/SRR38097389_2.fastq.gz
 
 Para processar os dados brutos e gerar as matrizes de abundância com resolução de ASVs, executaremos o pipeline nf-core/ampliseq.
 
-Nota biológica: Como o protocolo de sequenciamento utilizado (EMP) já entrega reads sem primers na extremidade 5', mas com read-through na 3', nós desligamos o Cutadapt e ajustamos o truncamento nativo do DADA2.
+*Nota biológica: Como o protocolo de sequenciamento utilizado (EMP) já entrega reads sem primers na extremidade 5', mas com read-through na 3', nós desligamos o Cutadapt e ajustamos o truncamento nativo do DADA2.*
 
 ```bash
 nextflow run nf-core/ampliseq \
@@ -73,13 +73,13 @@ nextflow run nf-core/ampliseq \
   -resume
 ```
 
-*  Cache: A flag `-resume` garante que a execução recupere etapas previamente calculadas em caso de interrupção, economizando horas de processamento.
+*  **Cache:** A flag `-resume` garante que a execução recupere etapas previamente calculadas em caso de interrupção, economizando horas de processamento.
 
 ## Visualização de Dados
 
-Um pipeline profissional não devolve apenas tabelas de texto; ele entrega produtos prontos para Data Science. O Nextflow empacotou nossa filogenia, taxonomia e contagens em um único objeto `.rds` (Phyloseq).
+Um pipeline profissional não devolve apenas tabelas de texto; ele entrega produtos prontos para *Data Science*. O Nextflow empacotou nossa filogenia, taxonomia e contagens em um único objeto `.rds` (Phyloseq).
 
-Para gerar gráficos de publicação sem precisar instalar o R na sua máquina, encapsulamos toda a lógica em um script automatizado que reutiliza o ambiente isolado do Docker. No terminal do seu Codespace, execute:
+Para gerar gráficos de publicação sem precisar instalar o R na sua máquina, encapsulamos toda a lógica em um script automatizado que reutiliza o ambiente isolado do *Docker*. No terminal do seu *Codespace*, execute:
 
 ```bash
 ./dataviz.sh
