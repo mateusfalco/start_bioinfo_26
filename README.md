@@ -101,6 +101,10 @@ Para gerar gráficos de publicação sem precisar instalar o R na sua máquina, 
 
 ## Materiais de Apoio
 
+* 🖥️ **[Slides da Apresentação (PDF)](doc/Start_Bioinfo_26.pdf)** <sup>**NOVO!**</sup>: Material de apoio teórico utilizado na aula, cobrindo os conceitos de Big Data, Conteinerização, DAGs e Dataflow.
+
+* 🖥️ **[Slides da Apresentação (PDF)](doc/Start_Bioinfo_26.pdf)** ![Novo](https://img.shields.io/badge/Novo-brightgreen): Material de apoio teórico utilizado na aula, cobrindo os conceitos de Big Data, Conteinerização, DAGs e Dataflow.
+
 [Documentação e Treinamento Oficial (Nextflow)](https://training.nextflow.io/): Documentação completa e exercícios avançados.
 
 [nf-core: Repositório de Pipelines Validados](https://nf-co.re/): Catálogo de pipelines padrão-ouro para bioinformática.
