@@ -24,6 +24,17 @@ A bioinformática moderna exige reprodutibilidade, escalabilidade e controle rig
 
 Para que nosso foco seja inteiramente científico e prático, abstraímos a barreira da infraestrutura. O ambiente virtual gerado pelo **Codespaces** já vem configurado com todas as dependências (Nextflow, Docker e utilitários) necessárias para a aula.
 
+<br>
+
+<div align="center">
+  <h3>Gravação Oficial do Minicurso</h3>
+  <a href="https://www.youtube.com/watch?v=tKOzPr_Evxw" target="_blank">
+    <img src="https://img.youtube.com/vi/tKOzPr_Evxw/maxresdefault.jpg" alt="Start Bioinfo 2026 - Introdução ao Nextflow - dia 04" width="700" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+  </a>
+  <br>
+  <p><i>▶️ Clique na imagem acima para assistir à gravação completa no YouTube.</i></p>
+</div>
+
 ---
 
 ## O Experimento: Transplante de Microbiota Fecal (FMT)
